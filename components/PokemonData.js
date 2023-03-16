@@ -1,3 +1,4 @@
+import Error from "next/error";
 import Link from "next/link";
 import { Button, Card } from "react-bootstrap";
 import useSWR from "swr";
