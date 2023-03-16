@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import { Card, Col, Pagination, Row } from "react-bootstrap";
 import useSWR from "swr";
 
-const PER_PAGE = 20;
+const limit = 20;
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
-  const [page, setPage] = useState(1);
-  const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon/`);
-
+  const [offset, setOffset] = useState(0);
+  const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
+  console.log(offset);
+  console.log("offset");
+  console.log(limit);
+  console.log("limit");
 
   useEffect(() => {
     if (data) {
@@ -19,14 +22,12 @@ export default function Home() {
   }, [data]);
 
   const previousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
+    if (offset >= limit){
+      setOffset(offset - limit)
     }
   };
   const nextPage = () => {
-    if (page < data?.length) {
-      setPage(page + 1);
-    }
+    setOffset(offset + limit);
   };
 
   if (error) {
@@ -35,32 +36,33 @@ export default function Home() {
   if (!data) {
     return null;
   }
-  
 
   return (
     <>
       {/* <PokemonData id={151}/> */}
-      {console.log(pokemonList)}
+      {/* {console.log(pokemonList)}
       {console.log("data")}
       {console.log(pokemonList?.results)}
-      {console.log("results")}
-      <Row className="gy-4">
+      {console.log("results")} */}
+      <Row className="gy-3" md={5}>
         {data?.results.map((pokemon) => {
           return (
-            <Col lg={3} key={pokemon.url}>
+            <Col key={pokemon.url}>
               <PokemonData url={pokemon.url} />
             </Col>
           );
         })}
       </Row>
-
+      <br/>
+      <br/>
+      <br/>
       {data?.results.length > 0 ? (
         <Row>
           <Col>
             <Pagination>
               <Pagination.Prev onClick={previousPage} />
-              <Pagination.Item active>{page}</Pagination.Item>
-              <Pagination.Next onClick={nextPage} />
+              <Pagination.Item active>{offset + 1} - {offset+ limit}</Pagination.Item>
+              <Pagination.Next onClick={nextPage}/>
             </Pagination>
           </Col>
         </Row>

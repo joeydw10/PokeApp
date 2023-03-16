@@ -7,7 +7,7 @@ export function PokemonData(prop) {
   const { data, error } = useSWR(
     `${prop.url}`
   );
-  console.log(data);
+  // console.log(data);
   if (error) {
     return <Error statusCode={404} />;
   }
@@ -27,9 +27,9 @@ export function PokemonData(prop) {
         <Card.Text>
           <strong>ID: </strong> {data?.id || "N/A"}
           <br />
-          <strong>Type:</strong> {data?.types.map((typing) =>{typing.type.name}) || "N/A"}
-          {console.log(data?.types)}
-          {console.log("typing")}
+          <strong>Type:</strong> {" Type placeholder" || "N/A"}
+          {/* {console.log(data?.types)}
+          {console.log("typing")} */}
           <br />
           <strong>Weight:</strong> {data?.weight || "N/A"} <br />
         </Card.Text>
