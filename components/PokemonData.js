@@ -13,30 +13,39 @@ export function PokemonData(prop) {
     return null;
   }
   return (
-    <Card>
-      <Card.Img
-        src={
-          data?.sprites.other["official-artwork"].front_default ||
-          "https://via.placeholder.com/50x50.png?text=%5B+Not+Available+%5D"
-        }
-      />
-      <Card.Body>
-        <Card.Title>{data?.name || "N/A"}</Card.Title>
-        <Card.Text>
-          <strong>ID: </strong> {data?.id || "N/A"}
-          <br />
-          <strong>Type: </strong><span className={data?.types[0].type.name}>{data?.types[0].type.name}</span>&nbsp;
-          {data?.types[1] ? <span className={data?.types[1].type.name}>{data?.types[1].type.name}</span>  : null}
-          <br />
-          <strong>Weight:</strong> {data?.weight || "N/A"} <br />
-        </Card.Text>
-        <Link href={`/pokemon/${data?.id}`} passHref>
-          <Button variant="primary">
-            <strong>ID: </strong>
-            {data?.id}
-          </Button>
-        </Link>
-      </Card.Body>
-    </Card>
+    <>
+      <br />
+      <Card>
+        <Card.Img
+          src={
+            data?.sprites.other["official-artwork"].front_default ||
+            "https://via.placeholder.com/50x50.png?text=%5B+Not+Available+%5D"
+          }
+        />
+        <Card.Body>
+          <Card.Title>{data?.name || "N/A"}</Card.Title>
+          <Card.Subtitle>Entry: {data.id}</Card.Subtitle>
+          <Card.Text>
+            <strong>Type: </strong>
+            <span id="pokemonType" className={data?.types[0].type.name}>
+              {data?.types[0].type.name}
+            </span>
+            {data?.types[1] ? (
+              <span id="pokemonType" className={data?.types[1].type.name}>
+                {data?.types[1].type.name}
+              </span>
+            ) : null}
+            <br />
+            <strong>Weight:</strong> {data?.weight || "N/A"} <br />
+          </Card.Text>
+          <Link href={`/pokemon/${data?.id}`} passHref>
+            <Button variant="primary">
+              <strong>ID: </strong>
+              {data?.id}
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    </>
   );
 }

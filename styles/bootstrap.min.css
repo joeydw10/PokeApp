@@ -1,6 +1,10 @@
 @charset "UTF-8";
-span {
-    font-size: 14pt;
+#pokemonType {
+    font-size: 12pt;
+    border-radius: 6px;
+    line-height: 18px;
+    margin: 2%;
+    padding: 3px;
 }
 
 .grass {
