@@ -7,9 +7,9 @@ import useSWR from "swr";
 const PER_PAGE = 20;
 
 export default function Home() {
-  const [pokemonList, setPokemonList] = useState();
+  const [pokemonList, setPokemonList] = useState([]);
   const [page, setPage] = useState(1);
-  const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon?limit=20`);
+  const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon/`);
 
   const previousPage = () => {
     if (page > 1) {
@@ -25,17 +25,18 @@ export default function Home() {
   if (error) {
     return <Error statusCode={404} />;
   }
-  if (!data) {
-    return null;
-  }
+  // if (!data) {
+  //   return null;
+  // }
 
 
   return (
     <>
-      <PokemonData id={151}/>
-      {console.log(data)}
-      {/* <Row className="gy-4">
-        {data.map((id) => {
+      {/* <PokemonData id={151}/> */}
+      {console.log(data + "just data")}
+      {console.log(data?.results + "Results")}
+      <Row className="gy-4">
+        {data?.results.map((id) => {
           return (
             <Col lg={3} key={id}>
               <PokemonData id={id} />
@@ -54,7 +55,7 @@ export default function Home() {
             </Pagination>
           </Col>
         </Row>
-      ) : null} */}
+      ) : null}
     </>
   );
 }
