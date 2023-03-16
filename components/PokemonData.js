@@ -29,8 +29,8 @@ export function PokemonData(prop) {
           <br />
           <strong>Weight:</strong> {data?.weight || "N/A"} <br />
         </Card.Text>
-        <Link href={`/artwork/${data?.id}`} passHref>
-          <Button variant="dark">
+        <Link href={`/pokemon/${data?.id}`} passHref>
+          <Button variant="primary">
             <strong>ID: </strong>
             {data?.id}
           </Button>
