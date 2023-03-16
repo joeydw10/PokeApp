@@ -79,7 +79,7 @@ export default function Home() {
       <Button size="lg" onClick={genSeven} variant="info">Gen 7</Button>&nbsp;&nbsp;
       <Button size="lg" onClick={genEight} variant="info">Gen 8</Button>&nbsp;&nbsp;
       <Button size="lg" onClick={genNine} variant="info">Gen 9</Button>&nbsp;&nbsp;
-      <Row className="gy-3" md={5}>
+      <Row className="gy-3" sm={5}  md={5}>
         {data?.results.map((pokemon) => {
           return (
             <Col key={pokemon.url}>
