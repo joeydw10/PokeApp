@@ -2,11 +2,8 @@ import Link from "next/link";
 import { Button, Card } from "react-bootstrap";
 import useSWR from "swr";
 
-
 export function PokemonData(prop) {
-  const { data, error } = useSWR(
-    `${prop.url}`
-  );
+  const { data, error } = useSWR(`${prop.url}`);
   // console.log(data);
   if (error) {
     return <Error statusCode={404} />;
@@ -27,9 +24,8 @@ export function PokemonData(prop) {
         <Card.Text>
           <strong>ID: </strong> {data?.id || "N/A"}
           <br />
-          <strong>Type:</strong> {" Type placeholder" || "N/A"}
-          {/* {console.log(data?.types)}
-          {console.log("typing")} */}
+          <strong>Type:</strong> {data?.types[0].type.name}
+          {data?.types[1] ? `, ${data?.types[1].type.name}` : null}
           <br />
           <strong>Weight:</strong> {data?.weight || "N/A"} <br />
         </Card.Text>
