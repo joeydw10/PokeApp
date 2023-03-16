@@ -25,8 +25,8 @@ export function PokemonData(prop) {
         <Card.Text>
           <strong>ID: </strong> {data?.id || "N/A"}
           <br />
-          <strong>Type:</strong> {data?.types[0].type.name}
-          {data?.types[1] ? `, ${data?.types[1].type.name}` : null}
+          <strong>Type: </strong><span className={data?.types[0].type.name}>{data?.types[0].type.name}</span>&nbsp;
+          {data?.types[1] ? <span className={data?.types[1].type.name}>{data?.types[1].type.name}</span>  : null}
           <br />
           <strong>Weight:</strong> {data?.weight || "N/A"} <br />
         </Card.Text>

@@ -1,4 +1,86 @@
-@charset "UTF-8";/*!
+@charset "UTF-8";
+span {
+    font-size: 14pt;
+}
+
+.grass {
+    color: white;
+    background: #78C850;
+}
+
+.poison {
+    color: white;
+    background: #A040A0;
+}
+
+.dark {
+    color: white;
+    background-color: #705848;
+}
+
+.ghost {
+    color: white;
+    background-color: #705898;
+}
+
+.fighting {
+    color: white;
+    background: #C03028;
+}
+
+.dragon {
+    color: white;
+    background: #7038F8;
+}
+
+.bug {
+    background: #A8B820;
+}
+
+.fire {
+    background: #F08030;
+}
+
+.water {
+    background: #6890F0;
+}
+
+.electric {
+    background: #F8D030;
+}
+
+.fairy {
+    background: #EE99AC;
+}
+
+.flying {
+    background: #A890F0;
+}
+
+.ground {
+    background-color: #E0C068;
+}
+
+.ice {
+    background-color: #98D8D8;
+}
+
+.normal {
+    background-color: #A8A878;
+}
+
+.psychic {
+    background-color: #F85888;
+}
+
+.rock {
+    background-color: #B8A038;
+}
+
+.steel {
+    background-color: #B8B8D0;
+}
+/*!
  * Bootswatch v5.2.3 (https://bootswatch.com)
  * Theme: flatly
  * Copyright 2012-2022 Thomas Park
