@@ -10,10 +10,6 @@ export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
   const [offset, setOffset] = useState(0);
   const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
-  console.log(offset);
-  console.log("offset");
-  console.log(limit);
-  console.log("limit");
 
   useEffect(() => {
     if (data) {
