@@ -70,15 +70,15 @@ export default function Home() {
       {console.log("data")}
       {console.log(pokemonList?.results)}
       {console.log("results")} */}
-      <Button onClick={genOne} variant="info">Gen 1</Button>
-      <Button onClick={genTwo} variant="info">Gen 2</Button>
-      <Button onClick={genThree} variant="info">Gen 3</Button>
-      <Button onClick={genFour} variant="info">Gen 4</Button>
-      <Button onClick={genFive} variant="info">Gen 5</Button>
-      <Button onClick={genSix} variant="info">Gen 6</Button>
-      <Button onClick={genSeven} variant="info">Gen 7</Button>
-      <Button onClick={genEight} variant="info">Gen 8</Button>
-      <Button onClick={genNine} variant="info">Gen 9</Button>
+      <Button size="lg" onClick={genOne} variant="info">Gen 1</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genTwo} variant="info">Gen 2</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genThree} variant="info">Gen 3</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genFour} variant="info">Gen 4</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genFive} variant="info">Gen 5</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genSix} variant="info">Gen 6</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genSeven} variant="info">Gen 7</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genEight} variant="info">Gen 8</Button>&nbsp;&nbsp;
+      <Button size="lg" onClick={genNine} variant="info">Gen 9</Button>&nbsp;&nbsp;
       <Row className="gy-3" md={5}>
         {data?.results.map((pokemon) => {
           return (
