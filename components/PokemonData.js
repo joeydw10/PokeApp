@@ -5,8 +5,9 @@ import useSWR from "swr";
 
 export function PokemonData(prop) {
   const { data, error } = useSWR(
-    `https://pokeapi.co/api/v2/pokemon/${prop.id}`
+    `${prop.url}`
   );
+  console.log(data);
   if (error) {
     return <Error statusCode={404} />;
   }
@@ -26,14 +27,16 @@ export function PokemonData(prop) {
         <Card.Text>
           <strong>ID: </strong> {data?.id || "N/A"}
           <br />
-          <strong>Classification:</strong> {data?.classification || "N/A"}
+          <strong>Type:</strong> {data?.types.map((typing) =>{typing.type.name}) || "N/A"}
+          {console.log(data?.types)}
+          {console.log("typing")}
           <br />
-          <strong>Medium:</strong> {data?.medium || "N/A"} <br />
+          <strong>Weight:</strong> {data?.weight || "N/A"} <br />
         </Card.Text>
-        <Link href={`/artwork/${data?.objectID}`} passHref>
+        <Link href={`/artwork/${data?.id}`} passHref>
           <Button variant="dark">
             <strong>ID: </strong>
-            {data?.objectID}
+            {data?.id}
           </Button>
         </Link>
       </Card.Body>

@@ -11,6 +11,13 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const { data, error } = useSWR(`https://pokeapi.co/api/v2/pokemon/`);
 
+
+  useEffect(() => {
+    if (data) {
+      setPokemonList(data);
+    }
+  }, [data]);
+
   const previousPage = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -25,27 +32,29 @@ export default function Home() {
   if (error) {
     return <Error statusCode={404} />;
   }
-  // if (!data) {
-  //   return null;
-  // }
-
+  if (!data) {
+    return null;
+  }
+  
 
   return (
     <>
       {/* <PokemonData id={151}/> */}
-      {console.log(data + "just data")}
-      {console.log(data?.results + "Results")}
+      {console.log(pokemonList)}
+      {console.log("data")}
+      {console.log(pokemonList?.results)}
+      {console.log("results")}
       <Row className="gy-4">
-        {data?.results.map((id) => {
+        {data?.results.map((pokemon) => {
           return (
-            <Col lg={3} key={id}>
-              <PokemonData id={id} />
+            <Col lg={3} key={pokemon.url}>
+              <PokemonData url={pokemon.url} />
             </Col>
           );
         })}
       </Row>
 
-      {data?.results > 0 ? (
+      {data?.results.length > 0 ? (
         <Row>
           <Col>
             <Pagination>
