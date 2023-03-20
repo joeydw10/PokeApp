@@ -23,10 +23,9 @@ export function PokemonData(prop) {
           }
         />
         <Card.Body>
-          <Card.Title>{data?.name || "N/A"}</Card.Title>
+          <Card.Title className="text-capitalize">{data?.name || "N/A"}</Card.Title>
           <Card.Subtitle>Entry: {data.id}</Card.Subtitle>
           <Card.Text>
-            <strong>Type: </strong>
             <span id="pokemonType" className={data?.types[0].type.name}>
               {data?.types[0].type.name}
             </span>
@@ -36,7 +35,6 @@ export function PokemonData(prop) {
               </span>
             ) : null}
             <br />
-            <strong>Weight:</strong> {data?.weight || "N/A"} <br />
           </Card.Text>
           <Link href={`/pokemon/${data?.id}`} passHref>
             <Button variant="primary">
