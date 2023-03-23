@@ -1,20 +1,15 @@
 @charset "UTF-8";
 #pokemonType {
-    font-size: 13pt;
+    font-size: 15pt;
     border-radius: 5px;
     line-height: 25px;
-    margin: 0% 1.25% 0% 0%;
-    padding: 1.75px;
+    margin: 0% 2% 0% 0%;
+    padding: 2px;
+    line-height: 30px;
 }
 @media (max-width: 768px){
     #pokemonType{
         font-size: 11pt;
-    }
-}
-@media (max-width: 1440px){
-    #pokemonType{
-        line-height: 30px;
-        font-size: 15pt;
     }
 }
 .grass {
