@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Pagination, Row } from "react-bootstrap";
 import useSWR from "swr";
 
-const limit = 9999;
+const limit = 20;
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -80,16 +80,22 @@ export default function Home() {
       <Button size="lg" onClick={genEight} variant="info">Gen 8</Button>&nbsp;&nbsp;
       <Button size="lg" onClick={genNine} variant="info">Gen 9</Button>&nbsp;&nbsp;
       <Row className="gy-3" xs={2} sm={2} md={4} lg={5}>
+        {console.log(data?.results.length)}
+        {console.log(`limit ${offset + limit}`)}
         {data?.results.map((pokemon) => {
           return (
-            <Col  key={pokemon.url}>
+            /*1281 total 1010 normal*/
+            <>
+            {offset + limit <= 1281 ? (  
+              <Col key={pokemon.url}>
               <PokemonData url={pokemon.url} />
             </Col>
+            ) : null}
+              
+            </>
           );
         })}
       </Row>
-      <br />
-      <br />
       <br />
       {data?.results.length > 0 ? (
         <Row>
