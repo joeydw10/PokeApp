@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Pagination, Row } from "react-bootstrap";
 import useSWR from "swr";
 
-const limit = 20;
+const limit = 9999;
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
