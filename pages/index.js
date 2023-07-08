@@ -65,8 +65,8 @@ export default function Home() {
 
   return (
     <>
-      {/* <PokemonData id={151}/> */}
-      {/* {console.log(pokemonList)}
+      {/* <PokemonData id={151}/> }
+      { {console.log(pokemonList)}
       {console.log("data")}
       {console.log(pokemonList?.results)}
       {console.log("results")} */}
