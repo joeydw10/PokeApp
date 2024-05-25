@@ -1,1 +1,1 @@
-This is a [Next.js](https://nextjs.org/) project using a open source api [pokeapi]https://pokeapi.co and using bootstrap 5 to make modernized Pokedex You can view it at https://joeydw10-pokeapp.vercel.app
+This is a [Next.js](https://nextjs.org/) project using a open source api [pokeapi](https://pokeapi.co) and using bootstrap 5 to make modernized Pokedex You can view it at https://joeydw10-pokeapp.vercel.app
