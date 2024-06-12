@@ -13,9 +13,21 @@ export default function Home() {
     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
   );
 
+
+  const getPokemonId = (url) =>{
+    const id = url.split("/").filter(Boolean).pop();
+    console.log("id of pokemon in getPokemonId", id);
+    return parseInt(id);
+  }
+
   useEffect(() => {
     if (data) {
-      setPokemonList(data);
+      const filteredPokemon = data.results.filter((pokemon) => getPokemonId(pokemon.url) < 10000)
+      console.log("filtered pokemon", filteredPokemon)
+      setPokemonList(filteredPokemon);
+      //check after every new game release 
+      // 6/12/2024 Count:1302 Normal:1025
+      //console.log("useEffect Data count",data);
     }
   }, [data]);
 
@@ -25,6 +37,7 @@ export default function Home() {
     }
   };
   const nextPage = () => {
+    if(offset + limit < 1025)
     setOffset(offset + limit);
     
   };
@@ -80,24 +93,23 @@ export default function Home() {
       <Button size="lg" onClick={genEight} variant="info">Gen 8</Button>&nbsp;&nbsp;
       <Button size="lg" onClick={genNine} variant="info">Gen 9</Button>&nbsp;&nbsp;
       <Row className="gy-3" xs={2} sm={2} md={4} lg={5}>
-        {console.log(data?.results.length)}
-        {console.log(`limit ${offset + limit}`)}
-        {data?.results.map((pokemon) => {
+        {/* {console.log(pokemonList.length)} */}
+        {/* {console.log(`limit ${offset + limit}`)} */}
+        {pokemonList.map((pokemon) => {
           return (
-            /*1281 total 1010 normal as of pokemon scvi*/ 
+            /*1281 total 1025 normal as of pokemon scvi dlcs*/ 
             <>
             {offset + limit <= 1281 ? (  
               <Col key={pokemon.url}>
               <PokemonData url={pokemon.url} />
             </Col>
             ) : null}
-              
             </>
           );
         })}
       </Row>
       <br />
-      {data?.results.length > 0 ? (
+      {pokemonList.length > 0 ? (
         <Row>
           <Col>
             <Pagination>
