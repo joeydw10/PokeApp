@@ -84,7 +84,7 @@ export default function Home() {
         {console.log(`limit ${offset + limit}`)}
         {data?.results.map((pokemon) => {
           return (
-            /*1281 total 1010 normal*/
+            /*1281 total 1010 normal as of pokemon scvi*/ 
             <>
             {offset + limit <= 1281 ? (  
               <Col key={pokemon.url}>
