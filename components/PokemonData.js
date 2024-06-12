@@ -100,33 +100,6 @@ export function PokemonDetail(prop) {
         </Col>
       </Row>
     </Container>
-      {/* <Card className="col-md-2">
-        <Card.Img
-          src={
-            data?.sprites.other["official-artwork"].front_shiny ||
-            "https://via.placeholder.com/50x50.png?text=%5B+Not+Available+%5D"
-          }
-        />
-        <Card.Body>
-          <Card.Title className="text-capitalize">{data?.name || "N/A"}</Card.Title>
-          <Card.Subtitle>Entry: {data.id}</Card.Subtitle>
-          <Card.Text>
-            <span id="pokemonType" className={`${data?.types[0].type.name} text-capitalize`}>
-              {data?.types[0].type.name}
-            </span>
-            {data?.types[1] ? (
-              <span id="pokemonType" className={`${data?.types[1].type.name} text-capitalize`}>
-                {data?.types[1].type.name}
-              </span>
-            ) : null}
-            <br />
-          </Card.Text>
-            <Button variant="primary">
-              <strong>ID: </strong>
-              {data?.id}
-            </Button>
-        </Card.Body>
-      </Card> */}
     </>
   );
 }
