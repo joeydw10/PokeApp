@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 export function PokemonData(prop) {
   const { data, error } = useSWR(`${prop.url}`);
-  console.log("Data from PokemonData.js ", data);
+  // console.log("Data from PokemonData.js ", data);
   if (error) {
     return <Error statusCode={404} />;
   }
@@ -52,7 +52,7 @@ export function PokemonData(prop) {
 
 export function PokemonDetail(prop) {
   const { data, error } = useSWR(`${prop.url}`);
-  console.log("Data from PokemonData.js function PokemonDetail", data);
+  // console.log("Data from PokemonData.js function PokemonDetail", data);
   if (error) {
     return <Error statusCode={404} />;
   }
